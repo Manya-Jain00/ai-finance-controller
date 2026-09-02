@@ -17,5 +17,5 @@ __pycache__/
 venv/
 
 # agent run outputs (regenerable)
-agent/decision_log.jsonl
+agent/decision_log*.jsonl
 eval/*.jsonl

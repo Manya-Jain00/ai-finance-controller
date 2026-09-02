@@ -1,0 +1,116 @@
+{
+  "dataset": {
+    "payments": 130,
+    "solvable": 120,
+    "orphans": 10
+  },
+  "coverage": {
+    "logged": 130,
+    "missing": 0,
+    "errors": 0,
+    "pct_logged": 100.0
+  },
+  "match_rate": {
+    "committed_to_a_match": 121,
+    "pct_of_all": 93.1,
+    "pct_of_solvable": 100.0
+  },
+  "accuracy": {
+    "correct": 129,
+    "pct_of_all": 99.2,
+    "pct_of_evaluated": 99.2,
+    "type_only": 99.2,
+    "invoice_set_only": 99.2
+  },
+  "accuracy_by_type": {
+    "single_full": {
+      "n": 65,
+      "correct": 65,
+      "pct": 100.0
+    },
+    "combined": {
+      "n": 20,
+      "correct": 20,
+      "pct": 100.0
+    },
+    "partial": {
+      "n": 20,
+      "correct": 20,
+      "pct": 100.0
+    },
+    "fee_deducted": {
+      "n": 15,
+      "correct": 15,
+      "pct": 100.0
+    },
+    "orphan": {
+      "n": 10,
+      "correct": 9,
+      "pct": 90.0
+    }
+  },
+  "confusion": {
+    "single_full": {
+      "single_full": 65
+    },
+    "combined": {
+      "combined": 20
+    },
+    "partial": {
+      "partial": 20
+    },
+    "fee_deducted": {
+      "fee_deducted": 15
+    },
+    "orphan": {
+      "orphan": 9,
+      "fee_deducted": 1
+    }
+  },
+  "exception_quality": {
+    "agent_raised": 9,
+    "correct": 9,
+    "precision": 100.0,
+    "orphan_recall": 90.0,
+    "gave_up_on_solvable": {
+      "count": 0,
+      "pct_of_solvable": 0.0,
+      "payments": []
+    },
+    "missed_orphans": {
+      "count": 1,
+      "payments": [
+        "PAY0123"
+      ]
+    }
+  },
+  "throughput": {
+    "payments_timed": 130,
+    "total_agent_seconds": 1573.9,
+    "payments_per_min": 4.96,
+    "avg_latency_s": 12.11,
+    "avg_model_iterations": 2.45,
+    "avg_tool_calls": 2.45,
+    "forced_retries": 3,
+    "tokens": {
+      "input": 929340,
+      "output": 24452,
+      "per_payment": 7336
+    }
+  },
+  "preflight": {
+    "made_a_suggestion": 130,
+    "agent_followed": 129,
+    "suggestion_correct_vs_truth": 130
+  },
+  "wrong_answers": [
+    {
+      "payment_id": "PAY0123",
+      "truth": "orphan []",
+      "agent": "fee_deducted ['INV0038'] @ 0.80",
+      "preflight": "exception []",
+      "truth_note": "No corresponding invoice exists; planted as a true exception.",
+      "agent_reasoning": "Although the reference is unknown and counterparty email is unknown@example.com, searching by amount with tolerance found INV0038 (amount 27627.27). Checking the fee schedule reveals that the received amount 27043.96 represents a 2.11% fee deduction from invoice INV0038, which falls squarely within the standard 1.5%-3.0% gateway processing fee schedule."
+    }
+  ]
+}

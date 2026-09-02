@@ -75,6 +75,7 @@ class DecisionRecord:
     resolution: Optional[Resolution] = None
 
     # --- how it got there (audit trail) --------------------------------
+    preflight: Optional[dict] = None      # deterministic pre-analysis (Phase 4)
     tool_calls: list[ToolCall] = field(default_factory=list)
     iterations: int = 0
     forced_retry: bool = False            # did the loop make it try again?

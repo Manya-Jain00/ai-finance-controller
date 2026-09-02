@@ -28,6 +28,7 @@ from google.genai import types
 
 from tools.loaders import Invoice, Payment
 
+from .preflight import Preflight
 from .prompts import SYSTEM_PROMPT
 from .schema import (
     LOW_CONFIDENCE,
@@ -171,7 +172,13 @@ class Reconciler:
                     print(f"    (rate limited; waiting {delay:.0f}s, retry {attempt + 1})")
                 time.sleep(delay)
 
-    def reconcile(self, payment: Payment, *, verbose: bool = False) -> DecisionRecord:
+    def reconcile(
+        self,
+        payment: Payment,
+        *,
+        verbose: bool = False,
+        preflight: Preflight | None = None,
+    ) -> DecisionRecord:
         rec = DecisionRecord(
             payment_id=self.payment_id_map.get(payment.payment_ref, payment.payment_ref),
             payment_ref=payment.payment_ref,
@@ -186,17 +193,28 @@ class Reconciler:
             timestamp=datetime.now(timezone.utc).isoformat(),
         )
 
-        contents: list[types.Content] = [
-            types.Content(
-                role="user",
-                parts=[types.Part(text=(
-                    "Reconcile this payment:\n\n"
-                    + json.dumps(_payment_view(payment), indent=2)
-                ))],
+        prompt = "Reconcile this payment:\n\n" + json.dumps(_payment_view(payment), indent=2)
+        if preflight is not None:
+            rec.preflight = preflight.to_dict()
+            prompt += (
+                "\n\nA deterministic pre-analysis has already been run for you, using the "
+                "same tools you have. Its tool results are trustworthy:\n\n"
+                + json.dumps(preflight.to_dict(), indent=2, default=str)
+                + "\n\nIf this pre-analysis already resolves the payment, confirm the amounts "
+                "yourself (call get_invoices if you need the figures) and then call "
+                "submit_resolution. If it is inconclusive or you disagree, investigate "
+                "further with your tools before submitting."
             )
+
+        contents: list[types.Content] = [
+            types.Content(role="user", parts=[types.Part(text=prompt)])
         ]
 
-        distinct_tools: set[str] = set()
+        # The pre-flight already executed these search strategies deterministically;
+        # their results are in the record, so they count toward the "try a second
+        # strategy before an exception" rule (spec point 2).
+        distinct_tools: set[str] = set(preflight.strategies_run) if preflight else set()
+        distinct_tools.discard("parse_reference")  # a parse alone was never a full strategy
         forced_retry_done = False
         started = time.monotonic()
         usage_in = usage_out = 0
