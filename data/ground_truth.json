@@ -1,0 +1,922 @@
+{
+  "PAY0001": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0041"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0002": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0036"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0003": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0156"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0004": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0153"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0005": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0102"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0006": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0127"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0007": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0027"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0008": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0119"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0009": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0121"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0010": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0172"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0011": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0024"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0012": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0118"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0013": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0149"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0014": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0090"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0015": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0057"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0016": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0019"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0017": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0100"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0018": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0126"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0019": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0150"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0020": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0145"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0021": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0178"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0022": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0174"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0023": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0001"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0024": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0046"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0025": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0053"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0026": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0062"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0027": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0066"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0028": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0043"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0029": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0151"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0030": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0094"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0031": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0096"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0032": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0064"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0033": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0072"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0034": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0140"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0035": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0012"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0036": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0098"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0037": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0099"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0038": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0087"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0039": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0146"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0040": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0025"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0041": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0171"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0042": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0037"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0043": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0163"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0044": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0166"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0045": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0029"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0046": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0164"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0047": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0093"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0048": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0088"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0049": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0110"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0050": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0128"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0051": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0038"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0052": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0073"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0053": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0129"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0054": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0030"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0055": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0142"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0056": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0050"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0057": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0175"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0058": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0052"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0059": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0120"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0060": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0152"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0061": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0042"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0062": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0034"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0063": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0068"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0064": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0023"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0065": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0084"
+    ],
+    "notes": "Exact single invoice match."
+  },
+  "PAY0066": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0077",
+      "INV0078",
+      "INV0079"
+    ],
+    "notes": "Combined payment covering 3 invoices, reference 'INV0077-0079'."
+  },
+  "PAY0067": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0111",
+      "INV0112",
+      "INV0113"
+    ],
+    "notes": "Combined payment covering 3 invoices, reference 'INV0111-0113'."
+  },
+  "PAY0068": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0131",
+      "INV0132"
+    ],
+    "notes": "Combined payment covering 2 invoices, reference 'INV0131-0132'."
+  },
+  "PAY0069": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0070",
+      "INV0071"
+    ],
+    "notes": "Combined payment covering 2 invoices, reference 'INV0070-0071'."
+  },
+  "PAY0070": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0135",
+      "INV0136",
+      "INV0137"
+    ],
+    "notes": "Combined payment covering 3 invoices, reference 'INV0135-0137'."
+  },
+  "PAY0071": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0105",
+      "INV0106"
+    ],
+    "notes": "Combined payment covering 2 invoices, reference 'INV0105-0106'."
+  },
+  "PAY0072": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0114",
+      "INV0115",
+      "INV0116"
+    ],
+    "notes": "Combined payment covering 3 invoices, reference 'INV0114-0116'."
+  },
+  "PAY0073": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0138",
+      "INV0139"
+    ],
+    "notes": "Combined payment covering 2 invoices, reference 'INV0138-0139'."
+  },
+  "PAY0074": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0157",
+      "INV0158"
+    ],
+    "notes": "Combined payment covering 2 invoices, reference 'INV0157-0158'."
+  },
+  "PAY0075": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0108",
+      "INV0109"
+    ],
+    "notes": "Combined payment covering 2 invoices, reference 'INV0108-0109'."
+  },
+  "PAY0076": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0159",
+      "INV0059",
+      "INV0173"
+    ],
+    "notes": "Combined payment covering 3 invoices, reference 'INV0059+INV0159+INV0173'."
+  },
+  "PAY0077": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0056",
+      "INV0167",
+      "INV0063"
+    ],
+    "notes": "Combined payment covering 3 invoices, reference 'INV0056+INV0063+INV0167'."
+  },
+  "PAY0078": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0054",
+      "INV0002",
+      "INV0044"
+    ],
+    "notes": "Combined payment covering 3 invoices, reference 'INV0002+INV0044+INV0054'."
+  },
+  "PAY0079": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0161",
+      "INV0009"
+    ],
+    "notes": "Combined payment covering 2 invoices, reference 'INV0009+INV0161'."
+  },
+  "PAY0080": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0124",
+      "INV0168",
+      "INV0069"
+    ],
+    "notes": "Combined payment covering 3 invoices, reference 'INV0069+INV0124+INV0168'."
+  },
+  "PAY0081": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0045",
+      "INV0006"
+    ],
+    "notes": "Combined payment covering 2 invoices, reference 'INV0006+INV0045'."
+  },
+  "PAY0082": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0130",
+      "INV0016",
+      "INV0082"
+    ],
+    "notes": "Combined payment covering 3 invoices, reference 'INV0016+INV0082+INV0130'."
+  },
+  "PAY0083": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0039",
+      "INV0180"
+    ],
+    "notes": "Combined payment covering 2 invoices, reference 'INV0039+INV0180'."
+  },
+  "PAY0084": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0148",
+      "INV0086",
+      "INV0081"
+    ],
+    "notes": "Combined payment covering 3 invoices, reference 'INV0081+INV0086+INV0148'."
+  },
+  "PAY0085": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0010",
+      "INV0147"
+    ],
+    "notes": "Combined payment covering 2 invoices, reference 'INV0010+INV0147'."
+  },
+  "PAY0086": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0051"
+    ],
+    "notes": "Partial payment: 8260.73 of 12708.81 (65%)."
+  },
+  "PAY0087": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0049"
+    ],
+    "notes": "Partial payment: 58859.48 of 84084.97 (70%)."
+  },
+  "PAY0088": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0165"
+    ],
+    "notes": "Partial payment: 56112.21 of 90503.56 (62%)."
+  },
+  "PAY0089": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0076"
+    ],
+    "notes": "Partial payment: 69157.24 of 92209.66 (75%)."
+  },
+  "PAY0090": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0117"
+    ],
+    "notes": "Partial payment: 3593.49 of 8764.6 (41%)."
+  },
+  "PAY0091": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0004"
+    ],
+    "notes": "Partial payment: 5223.59 of 7681.75 (68%)."
+  },
+  "PAY0092": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0080"
+    ],
+    "notes": "Partial payment: 54799.71 of 88386.63 (62%)."
+  },
+  "PAY0093": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0155"
+    ],
+    "notes": "Partial payment: 5758.62 of 7198.28 (80%)."
+  },
+  "PAY0094": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0040"
+    ],
+    "notes": "Partial payment: 56611.62 of 72579.0 (78%)."
+  },
+  "PAY0095": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0160"
+    ],
+    "notes": "Partial payment: 51203.63 of 85339.38 (60%)."
+  },
+  "PAY0096": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0107"
+    ],
+    "notes": "Partial payment: 41751.06 of 69585.1 (60%)."
+  },
+  "PAY0097": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0133"
+    ],
+    "notes": "Partial payment: 65357.88 of 89531.34 (73%)."
+  },
+  "PAY0098": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0097"
+    ],
+    "notes": "Partial payment: 26822.51 of 46245.7 (58%)."
+  },
+  "PAY0099": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0101"
+    ],
+    "notes": "Partial payment: 9214.66 of 19197.21 (48%)."
+  },
+  "PAY0100": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0122"
+    ],
+    "notes": "Partial payment: 69643.9 of 92858.54 (75%)."
+  },
+  "PAY0101": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0083"
+    ],
+    "notes": "Partial payment: 49779.27 of 92183.84 (54%)."
+  },
+  "PAY0102": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0177"
+    ],
+    "notes": "Partial payment: 17239.02 of 23615.1 (73%)."
+  },
+  "PAY0103": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0048"
+    ],
+    "notes": "Partial payment: 35751.39 of 48974.51 (73%)."
+  },
+  "PAY0104": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0104"
+    ],
+    "notes": "Partial payment: 66643.53 of 88858.04 (75%)."
+  },
+  "PAY0105": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0033"
+    ],
+    "notes": "Partial payment: 13358.99 of 24738.87 (54%)."
+  },
+  "PAY0106": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0154"
+    ],
+    "notes": "Net amount 24667.15 = invoice 25217.66 minus fee 550.51."
+  },
+  "PAY0107": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0060"
+    ],
+    "notes": "Net amount 24989.31 = invoice 25710.33 minus fee 721.02."
+  },
+  "PAY0108": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0028"
+    ],
+    "notes": "Net amount 23687.89 = invoice 24136.39 minus fee 448.5."
+  },
+  "PAY0109": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0075"
+    ],
+    "notes": "Net amount 9376.19 = invoice 9552.95 minus fee 176.76."
+  },
+  "PAY0110": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0015"
+    ],
+    "notes": "Net amount 53827.6 = invoice 54683.66 minus fee 856.06."
+  },
+  "PAY0111": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0091"
+    ],
+    "notes": "Net amount 55841.06 = invoice 57102.72 minus fee 1261.66."
+  },
+  "PAY0112": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0061"
+    ],
+    "notes": "Net amount 11152.58 = invoice 11389.38 minus fee 236.8."
+  },
+  "PAY0113": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0017"
+    ],
+    "notes": "Net amount 62779.19 = invoice 64513.7 minus fee 1734.51."
+  },
+  "PAY0114": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0031"
+    ],
+    "notes": "Net amount 51918.12 = invoice 53507.96 minus fee 1589.84."
+  },
+  "PAY0115": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0020"
+    ],
+    "notes": "Net amount 37187.02 = invoice 38316.29 minus fee 1129.27."
+  },
+  "PAY0116": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0085"
+    ],
+    "notes": "Net amount 9298.44 = invoice 9512.81 minus fee 214.37."
+  },
+  "PAY0117": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0003"
+    ],
+    "notes": "Net amount 12568.26 = invoice 12824.49 minus fee 256.23."
+  },
+  "PAY0118": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0162"
+    ],
+    "notes": "Net amount 9252.03 = invoice 9519.65 minus fee 267.62."
+  },
+  "PAY0119": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0026"
+    ],
+    "notes": "Net amount 40426.78 = invoice 41104.83 minus fee 678.05."
+  },
+  "PAY0120": {
+    "match_type": "fee_deducted",
+    "invoice_ids": [
+      "INV0032"
+    ],
+    "notes": "Net amount 84497.25 = invoice 85804.06 minus fee 1306.81."
+  },
+  "PAY0121": {
+    "match_type": "orphan",
+    "invoice_ids": [],
+    "notes": "No corresponding invoice exists; planted as a true exception."
+  },
+  "PAY0122": {
+    "match_type": "orphan",
+    "invoice_ids": [],
+    "notes": "No corresponding invoice exists; planted as a true exception."
+  },
+  "PAY0123": {
+    "match_type": "orphan",
+    "invoice_ids": [],
+    "notes": "No corresponding invoice exists; planted as a true exception."
+  },
+  "PAY0124": {
+    "match_type": "orphan",
+    "invoice_ids": [],
+    "notes": "No corresponding invoice exists; planted as a true exception."
+  },
+  "PAY0125": {
+    "match_type": "orphan",
+    "invoice_ids": [],
+    "notes": "No corresponding invoice exists; planted as a true exception."
+  },
+  "PAY0126": {
+    "match_type": "orphan",
+    "invoice_ids": [],
+    "notes": "No corresponding invoice exists; planted as a true exception."
+  },
+  "PAY0127": {
+    "match_type": "orphan",
+    "invoice_ids": [],
+    "notes": "No corresponding invoice exists; planted as a true exception."
+  },
+  "PAY0128": {
+    "match_type": "orphan",
+    "invoice_ids": [],
+    "notes": "No corresponding invoice exists; planted as a true exception."
+  },
+  "PAY0129": {
+    "match_type": "orphan",
+    "invoice_ids": [],
+    "notes": "No corresponding invoice exists; planted as a true exception."
+  },
+  "PAY0130": {
+    "match_type": "orphan",
+    "invoice_ids": [],
+    "notes": "No corresponding invoice exists; planted as a true exception."
+  }
+}

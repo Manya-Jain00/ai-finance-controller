@@ -1,0 +1,21 @@
+# secrets — never commit
+.env
+*.env
+!.env.example
+
+# editor / assistant config
+.claude/
+CLAUDE.md
+.mcp.json
+.vscode/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# agent run outputs (regenerable)
+agent/decision_log.jsonl
+eval/*.jsonl
