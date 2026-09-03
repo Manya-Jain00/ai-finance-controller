@@ -1,0 +1,186 @@
+========================================================================================
+  SETTLEMENT Q&A — judge-style questions against the decision log
+  log: agent\decision_log.jsonl   130 decisions   121 matched / 9 exceptions   model: gemini-3.5-flash-lite
+========================================================================================
+
+[1] Why didn't payment PAY0121 match?
+----------------------------------------------------------------------------------------
+    · get_payment(identifier='PAY0121')
+
+    Payment **PAY0121** did not match because it resulted in an **exception** (confidence: **0.90**). 
+    
+    According to the audit log, the reconciliation agent determined it was an unmatchable orphan payment for the following reasons:
+    * **Missing reference & unknown sender:** The payment had a reference of `"N/A"` from counterparty `"Unknown Sender Ltd"`.
+    * **No matching invoices:** Amount searches and customer lookups yielded no exact matches or viable open invoices within tolerance. 
+    * **Failed fee reconciliation:** Invoices within the general tolerance did not reconcile properly via fee schedules (one was off by 0.57% and another was an overpayment).
+
+    -- 1 log queries; cites PAY0121; 17.9s
+
+[2] Show me every combined payment above Rs 100,000.
+----------------------------------------------------------------------------------------
+    · search_payments(min_amount=100000, match_type='combined')
+
+    There are 12 combined payments above Rs 100,000. Here are the details:
+    
+    1. **PAY0067** — Rs 189,532.60 (2026-04-24, Gateway, Confidence: 0.95)
+       - Counterparty: `cust022@example.com`
+       - Invoices: INV0111, INV0112, INV0113
+    
+    2. **PAY0080** — Rs 188,273.71 (2026-05-03, Gateway, Confidence: 1.00)
+       - Counterparty: `cust022@example.com`
+       - Invoices: INV0069, INV0124, INV0168
+    
+    3. **PAY0077** — Rs 166,291.30 (2026-03-29, Gateway, Confidence: 0.95)
+       - Counterparty: `cust035@example.com`
+       - Invoices: INV0056, INV0063, INV0167
+    
+    4. **PAY0066** — Rs 163,503.39 (2026-02-15, Gateway, Confidence: 0.95)
+       - Counterparty: `cust016@example.com`
+       - Invoices: INV0077, INV0078, INV0079
+    
+    5. **PAY0084** — Rs 163,164.26 (2026-03-18, Bank, Confidence: 0.95)
+       - Counterparty: Customer 036 Pvt Ltd
+       - Invoices: INV0081, INV0086, INV0148
+    
+    6. **PAY0072** — Rs 153,024.37 (2026-06-01, Gateway, Confidence: 1.00)
+       - Counterparty: `cust008@example.com`
+       - Invoices: INV0114, INV0115, INV0116
+    
+    7. **PAY0070** — Rs 144,884.09 (2026-04-26, Gateway, Confidence: 0.95)
+       - Counterparty: `cust017@example.com`
+       - Invoices: INV0135, INV0136, INV0137
+    
+    8. **PAY0078** — Rs 120,766.51 (2026-02-01, Bank, Confidence: 0.95)
+       - Counterparty: Customer 031 Pvt Ltd
+       - Invoices: INV0002, INV0044, INV0054
+    
+    9. **PAY0083** — Rs 114,153.69 (2026-04-11, Bank, Confidence: 0.95)
+       - Counterparty: Customer 036 Pvt Ltd
+       - Invoices: INV0039, INV0180
+    
+    10. **PAY0074** — Rs 111,950.82 (2026-02-22, Bank, Confidence: 0.95)
+        - Counterparty: Customer 005 Pvt Ltd
+        - Invoices: INV0157, INV0158
+    
+    11. **PAY0082** — Rs 110,436.98 (2026-05-08, Gateway, Confidence: 1.00)
+        - Counterparty: `cust013@example.com`
+        - Invoices: INV0016, INV0082, INV0130
+    
+    12. **PAY0068** — Rs 102,759.78 (2026-04-15, Bank, Confidence: 0.95)
+        - Counterparty: Customer 005 Pvt Ltd
+        - Invoices: INV0131, INV0132
+
+    -- 1 log queries; cites PAY0067, PAY0080, PAY0077, PAY0066, PAY0084, PAY0072, PAY0070, PAY0078, PAY0083, PAY0074, PAY0082, PAY0068; 23.0s
+
+[3] How many payments did we reconcile, and what's the total value matched?
+----------------------------------------------------------------------------------------
+    · summarize_batch()
+
+    We reconciled a total of **130 payments** in this batch (121 successfully matched and 9 resulting in exceptions). 
+    
+    The **total value matched** across the successful reconciliations is **Rs 6,602,965.47** (out of Rs 6,804,475.48 total amount received).
+
+    -- 1 log queries; 10.8s
+
+[4] Which payments had a gateway fee deducted, and what was the largest fee taken?
+----------------------------------------------------------------------------------------
+    · search_payments(match_type='fee_deducted')
+    · get_payment(identifier='PAY0120')
+    · get_payment(identifier='PAY0113')
+    · get_payment(identifier='PAY0111')
+    · get_payment(identifier='PAY0110')
+    · get_payment(identifier='PAY0114')
+    · get_payment(identifier='PAY0119')
+    · get_payment(identifier='PAY0115')
+    · get_payment(identifier='PAY0123')
+    · get_payment(identifier='PAY0107')
+    · get_payment(identifier='PAY0106')
+    · get_payment(identifier='PAY0108')
+    · get_payment(identifier='PAY0117')
+    · get_payment(identifier='PAY0112')
+    · get_payment(identifier='PAY0109')
+    · get_payment(identifier='PAY0116')
+    · get_payment(identifier='PAY0118')
+
+    There are **16 payments** that had a gateway fee deducted (match type `fee_deducted`). 
+    
+    The largest fee taken was **Rs 1,734.51** on **PAY0113** (gross amount Rs 64,513.70, amount received Rs 62,779.19, fee percentage 2.69%).
+    
+    Here is the full list of fee-deducted payments along with their fees:
+    
+    1. **PAY0106** (INV0154): Gross Rs 25,217.66 | Received Rs 24,667.15 | **Fee: Rs 550.51**
+    2. **PAY0107** (INV0060): Gross Rs 25,710.33 | Received Rs 24,989.31 | **Fee: Rs 721.02**
+    3. **PAY0108** (INV0028): Gross Rs 24,136.39 | Received Rs 23,687.89 | **Fee: Rs 448.50**
+    4. **PAY0109** (INV0075): Gross Rs 9,552.95 | Received Rs 9,376.19 | **Fee: Rs 176.76**
+    5. **PAY0110** (INV0015): Gross Rs 54,683.66 | Received Rs 53,827.60 | **Fee: Rs 856.06**
+    6. **PAY0111** (INV0091): Gross Rs 57,102.72 | Received Rs 55,841.06 | **Fee: Rs 1,261.66**
+    7. **PAY0112** (INV0061): Gross Rs 11,389.38 | Received Rs 11,152.58 | **Fee: Rs 236.80**
+    8. **PAY0113** (INV0017): Gross Rs 64,513.70 | Received Rs 62,779.19 | **Fee: Rs 1,734.51** (Largest fee)
+    9. **PAY0114** (INV0031): Gross Rs 53,507.96 | Received Rs 51,918.12 | **Fee: Rs 1,589.84**
+    10. **PAY0115** (INV0020): Gross Rs 38,316.29 | Received Rs 37,187.02 | **Fee: Rs 1,129.27**
+    11. **PAY0116** (INV0085): Gross Rs 9,512.81 | Received Rs 9,298.44 | **Fee: Rs 214.37**
+    12. **PAY0117** (INV0003): Gross Rs 12,824.49 | Received Rs 12,568.26 | **Fee: Rs 256.23**
+    13. **PAY0118** (INV0162): Gross Rs 9,519.65 | Received Rs 9,252.03 | **Fee: Rs 267.62**
+    14. **PAY0119** (INV0026): Gross Rs 41,104.83 | Received Rs 40,426.78 | **Fee: Rs 678.05**
+    15. **PAY0120** (INV0032): Gross Rs 85,804.06 | Received Rs 84,497.25 | **Fee: Rs 1,306.81**
+    16. **PAY0123** (INV0038): Gross Rs 27,043.96 | Received Rs 27,043.96 | **Fee recorded as Rs 0** *(Implicit fee of 2.11% on gross invoice amount Rs 27,627.27, matched via amount tolerance)*
+
+    -- 17 log queries; cites PAY0113, PAY0106, PAY0107, PAY0108, PAY0109, PAY0110, PAY0111, PAY0112, PAY0114, PAY0115, PAY0116, PAY0117, PAY0118, PAY0119, PAY0120, PAY0123; 25.2s
+
+[5] Were there any payments where the agent overrode its own pre-flight analysis? What happened?
+----------------------------------------------------------------------------------------
+    · search_payments(preflight_disagreed=True)
+    · get_payment(identifier='PAY0123')
+
+    Yes, there was **1** payment where the agent overrode its pre-flight analysis: **PAY0123**.
+    
+    ### What Happened (PAY0123)
+    * **Date:** 2026-04-12
+    * **Source:** Gateway (`unknown@example.com`, amount received: **Rs 27,043.96**)
+    * **Pre-flight Suggestion:** `exception` (due to an unknown reference and unknown counterparty)
+    * **Agent Resolution:** `fee_deducted` (matched to invoice **INV0038**, confidence **0.80**)
+    * **Reasoning:** Even though the payment reference and counterparty email were unknown, searching invoices by amount with tolerance identified **INV0038** (gross amount Rs 27,627.27). The agent checked the fee schedule and confirmed that the received amount of Rs 27,043.96 reflected a **2.11% fee deduction**, which fits the standard 1.5%–3.0% gateway fee schedule.
+
+    -- 2 log queries; cites PAY0123; 108.2s
+
+[6] Give me the breakdown of resolutions by match type.
+----------------------------------------------------------------------------------------
+    · group_by(field='match_type')
+
+    Here is the breakdown of resolutions by match type across the batch (130 total payments):
+    
+    * **single_full**: 65
+    * **partial**: 20
+    * **combined**: 20
+    * **fee_deducted**: 16
+    * **exception**: 9
+
+    -- 1 log queries; 27.5s
+
+[7] List the lowest-confidence matches and say why the agent was unsure.
+----------------------------------------------------------------------------------------
+    · search_payments(limit=5, descending=False, sort_by='confidence')
+    · get_payment(identifier='PAY0122')
+    · get_payment(identifier='PAY0123')
+    · get_payment(identifier='PAY0129')
+    · search_payments(limit=5, sort_by='confidence', confidence=0.8, descending=False)
+    · search_payments(min_confidence=0.8, limit=10, sort_by='confidence', descending=False)
+
+    The lowest-confidence match in the audit log is **PAY0122** (confidence **0.70**), followed by a tie at **0.80** confidence (**PAY0123** and **PAY0129**). 
+    
+    Here is why the agent was unsure for each:
+    
+    1. **PAY0122** (Confidence: **0.70** | Match Type: **Exception**)
+       * **Why the agent was unsure:** The payment had no reference string (`UNKNOWN`) and an unknown counterparty email (`unknown@example.com`). An amount-based search returned four candidate invoices within tolerance, but without a definitive customer or reference link, the agent could not reliably match it and treated it as an exception.
+    
+    2. **PAY0123** (Confidence: **0.80** | Match Type: **Fee Deducted**)
+       * **Why the agent was unsure:** Like PAY0122, this payment had an `UNKNOWN` reference and an unknown counterparty email. However, the agent successfully identified invoice **INV0038** by searching with amount tolerance and verified that the difference represented a standard 2.11% gateway processing fee deduction (falling within the standard 1.5%–3.0% schedule).
+    
+    3. **PAY0129** (Confidence: **0.80** | Match Type: **Exception**)
+       * **Why the agent was unsure:** The payment reference was `N/A` and the counterparty (`Refund Co`) had no open invoices. An amount-based search surfaced an invoice for a different amount (INV0135 for Rs 14,756.23 vs payment of Rs 15,001.86), representing an unexplained overpayment without any customer or reference link, leading to an exception.
+
+    -- 6 log queries; cites PAY0122, PAY0123, PAY0129; 85.0s
+
+========================================================================================
+  7/7 answered; 7/7 hit the log at least once
+========================================================================================
