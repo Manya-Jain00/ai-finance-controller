@@ -15,7 +15,14 @@ __pycache__/
 *.egg-info/
 .venv/
 venv/
+.pytest_cache/
 
-# agent run outputs (regenerable)
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# agent run outputs (regenerable — a committed snapshot lives at
+# qa/batch_decision_log.jsonl for the offline demos)
 agent/decision_log*.jsonl
 eval/*.jsonl

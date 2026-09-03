@@ -34,6 +34,15 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 OUT_TXT = os.path.join(_HERE, "demo_output.txt")
 OUT_JSON = os.path.join(_HERE, "demo_summary.json")
 
+# The live Phase 4 log is git-ignored (regenerable). A committed snapshot of the
+# same 130-record run lives under qa/ so both the Q&A and monitor demos run on a
+# fresh clone without an API key.
+SNAPSHOT_LOG = os.path.join(os.path.dirname(_HERE), "qa", "batch_decision_log.jsonl")
+
+
+def _healthy_log_default() -> str:
+    return DEFAULT_LOG_PATH if os.path.exists(DEFAULT_LOG_PATH) else SNAPSHOT_LOG
+
 
 def _synth_bad_records() -> list[dict]:
     """Deterministic stand-in for the agent on the bad batch (no API).
@@ -101,7 +110,7 @@ class _Tee:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--healthy-log", default=DEFAULT_LOG_PATH)
+    ap.add_argument("--healthy-log", default=_healthy_log_default())
     ap.add_argument("--bad-log", default=BAD_LOG)
     ap.add_argument("--offline", action="store_true",
                     help="synthesise the bad-batch records instead of reading bad-log")
@@ -149,7 +158,10 @@ def main(argv: list[str] | None = None) -> int:
     summary["bad_batch_records"] = f"{lo}..{hi}"
     summary["fired_during_bad_batch"] = [e.rule.key for e in fired_in_bad]
     summary["cleared_after_bad_batch"] = [e.rule.key for e in cleared_after]
-    summary["bad_batch_source"] = "synthetic" if (args.offline or not os.path.exists(args.bad_log)) else args.bad_log
+    if args.offline or not os.path.exists(args.bad_log):
+        summary["bad_batch_source"] = "synthetic"
+    else:
+        summary["bad_batch_source"] = os.path.relpath(args.bad_log).replace("\\", "/")
     with open(OUT_JSON, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 

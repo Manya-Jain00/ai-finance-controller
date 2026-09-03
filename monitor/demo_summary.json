@@ -204,5 +204,5 @@
     "match_rate",
     "exception_rate"
   ],
-  "bad_batch_source": "D:\\Projects\\Finance Controller\\monitor\\bad_batch_log.jsonl"
+  "bad_batch_source": "monitor/bad_batch_log.jsonl"
 }

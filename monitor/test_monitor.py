@@ -135,9 +135,12 @@ class TestReplayHealthyLog(unittest.TestCase):
         import os
         from agent.decision_log import DEFAULT_LOG_PATH, load_log
 
-        if not os.path.exists(DEFAULT_LOG_PATH):
+        snapshot = os.path.join(os.path.dirname(os.path.dirname(__file__)),
+                                "qa", "batch_decision_log.jsonl")
+        log = DEFAULT_LOG_PATH if os.path.exists(DEFAULT_LOG_PATH) else snapshot
+        if not os.path.exists(log):
             self.skipTest("no decision log present")
-        rows = load_log(DEFAULT_LOG_PATH)[:60]
+        rows = load_log(log)[:60]
         t = SlidingWindowTracker()
         m = AlertManager()
         for r in rows:

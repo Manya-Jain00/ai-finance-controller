@@ -290,15 +290,21 @@ def print_report(m: dict) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--log", default=DEFAULT_LOG_PATH)
+    ap.add_argument("--log", default=None)
     ap.add_argument("--gt", default=os.path.join(DATA_DIR, "ground_truth.json"))
     ap.add_argument("--json", default=os.path.join(os.path.dirname(__file__), "metrics.json"))
     ap.add_argument("--quiet", action="store_true", help="write metrics.json only")
     args = ap.parse_args(argv)
 
-    if not os.path.exists(args.log):
-        print(f"no decision log at {args.log} -- run `python -m eval.run_batch` first.")
+    # The live log is git-ignored; fall back to the committed 130-record snapshot
+    # (under qa/) so the grade reproduces on a fresh clone with no batch re-run.
+    snapshot = os.path.join(os.path.dirname(os.path.dirname(__file__)), "qa", "batch_decision_log.jsonl")
+    log = args.log or (DEFAULT_LOG_PATH if os.path.exists(DEFAULT_LOG_PATH) else snapshot)
+
+    if not os.path.exists(log):
+        print(f"no decision log at {log} -- run `python -m eval.run_batch` first.")
         return 2
+    args.log = log
 
     result = evaluate(args.log, args.gt)
     m = result["metrics"]
