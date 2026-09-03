@@ -1,0 +1,187 @@
+====================================================================================================
+  LIVE RECONCILIATION MONITOR   sliding window = 20 payments   (alerts arm after 10)
+====================================================================================================
+  columns:  [n]  payment  source  verdict conf | window: match% conf exc% retry% pf-disagree% effort
+----------------------------------------------------------------------------------------------------
+[  1/145]~PAY0034  bank    single_full  0.97    | match 100%  conf 0.97  exc   0%  retry   0%  pf!=   0%  eff 2.0tc/2.0it
+[  2/145]~PAY0098  gateway partial      0.85    | match 100%  conf 0.91  exc   0%  retry   0%  pf!=   0%  eff 2.5tc/2.5it
+[  3/145]~PAY0095  gateway partial      0.85    | match 100%  conf 0.89  exc   0%  retry   0%  pf!=   0%  eff 2.7tc/2.7it
+[  4/145]~PAY0112  gateway fee_deducted 0.92    | match 100%  conf 0.90  exc   0%  retry   0%  pf!=   0%  eff 2.8tc/2.8it
+[  5/145]~PAY0089  bank    partial      0.85    | match 100%  conf 0.89  exc   0%  retry   0%  pf!=   0%  eff 2.8tc/2.8it
+[  6/145]~PAY0023  gateway single_full  0.97    | match 100%  conf 0.90  exc   0%  retry   0%  pf!=   0%  eff 2.7tc/2.7it
+[  7/145]~PAY0091  bank    partial      0.85    | match 100%  conf 0.89  exc   0%  retry   0%  pf!=   0%  eff 2.7tc/2.7it
+[  8/145]~PAY0129  bank    exception    0.80    | match  88%  conf 0.88  exc  12%  retry   0%  pf!=   0%  eff 2.9tc/2.9it
+[  9/145]~PAY0012  bank    single_full  1.00    | match  89%  conf 0.90  exc  11%  retry   0%  pf!=   0%  eff 2.8tc/2.8it
+[ 10/145] PAY0113  gateway fee_deducted 0.95    | match  90%  conf 0.90  exc  10%  retry   0%  pf!=   0%  eff 2.8tc/2.8it
+[ 11/145] PAY0040  bank    single_full  0.99    | match  91%  conf 0.91  exc   9%  retry   0%  pf!=   0%  eff 2.7tc/2.7it
+[ 12/145] PAY0075  gateway combined     0.95    | match  92%  conf 0.91  exc   8%  retry   0%  pf!=   0%  eff 2.7tc/2.7it
+[ 13/145] PAY0126  gateway exception    0.90    | match  85%  conf 0.91  exc  15%  retry   8%  pf!=   0%  eff 2.9tc/2.9it
+[ 14/145] PAY0102  gateway partial      0.85    | match  86%  conf 0.91  exc  14%  retry   7%  pf!=   0%  eff 2.9tc/2.9it
+[ 15/145] PAY0116  gateway fee_deducted 0.95    | match  87%  conf 0.91  exc  13%  retry   7%  pf!=   0%  eff 2.9tc/2.9it
+[ 16/145] PAY0058  gateway single_full  0.97    | match  88%  conf 0.91  exc  12%  retry   6%  pf!=   0%  eff 2.9tc/2.9it
+[ 17/145] PAY0017  bank    single_full  0.97    | match  88%  conf 0.92  exc  12%  retry   6%  pf!=   0%  eff 2.8tc/2.8it
+[ 18/145] PAY0048  gateway single_full  0.97    | match  89%  conf 0.92  exc  11%  retry   6%  pf!=   0%  eff 2.8tc/2.8it
+[ 19/145] PAY0086  gateway partial      0.85    | match  89%  conf 0.92  exc  11%  retry   5%  pf!=   0%  eff 2.8tc/2.8it
+[ 20/145] PAY0127  bank    exception    0.90    | match  85%  conf 0.92  exc  15%  retry   5%  pf!=   0%  eff 2.8tc/2.8it
+[ 21/145] PAY0060  bank    single_full  0.97    | match  85%  conf 0.92  exc  15%  retry   5%  pf!=   0%  eff 2.8tc/2.8it
+[ 22/145] PAY0110  gateway fee_deducted 0.95    | match  85%  conf 0.92  exc  15%  retry   5%  pf!=   0%  eff 2.8tc/2.8it
+[ 23/145] PAY0128  gateway exception    0.90    | match  80%  conf 0.92  exc  20%  retry  10%  pf!=   0%  eff 2.9tc/2.9it
+[ 24/145] PAY0036  gateway single_full  0.97    | match  80%  conf 0.93  exc  20%  retry  10%  pf!=   0%  eff 2.8tc/2.8it
+[ 25/145] PAY0109  gateway fee_deducted 0.95    | match  80%  conf 0.93  exc  20%  retry  10%  pf!=   0%  eff 2.8tc/2.8it
+[ 26/145] PAY0069  bank    combined     0.95    | match  80%  conf 0.93  exc  20%  retry  10%  pf!=   0%  eff 2.8tc/2.8it
+[ 27/145] PAY0001  gateway single_full  0.97    | match  80%  conf 0.94  exc  20%  retry  10%  pf!=   0%  eff 2.8tc/2.8it
+[ 28/145] PAY0078  bank    combined     0.95    | match  85%  conf 0.94  exc  15%  retry  10%  pf!=   0%  eff 2.6tc/2.6it
+[ 29/145] PAY0043  bank    single_full  0.97    | match  85%  conf 0.94  exc  15%  retry  10%  pf!=   0%  eff 2.6tc/2.6it
+[ 30/145] PAY0025  bank    single_full  1.00    | match  85%  conf 0.94  exc  15%  retry  10%  pf!=   0%  eff 2.6tc/2.6it
+[ 31/145] PAY0090  bank    partial      0.85    | match  85%  conf 0.94  exc  15%  retry  10%  pf!=   0%  eff 2.6tc/2.6it
+[ 32/145] PAY0093  gateway partial      0.85    | match  85%  conf 0.93  exc  15%  retry  10%  pf!=   0%  eff 2.7tc/2.7it
+[ 33/145] PAY0054  bank    single_full  0.97    | match  90%  conf 0.94  exc  10%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[ 34/145] PAY0009  bank    single_full  0.97    | match  90%  conf 0.94  exc  10%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[ 35/145] PAY0038  bank    single_full  0.97    | match  90%  conf 0.94  exc  10%  retry   5%  pf!=   0%  eff 2.4tc/2.4it
+[ 36/145] PAY0079  gateway combined     0.95    | match  90%  conf 0.94  exc  10%  retry   5%  pf!=   0%  eff 2.4tc/2.4it
+[ 37/145] PAY0115  gateway fee_deducted 0.92    | match  90%  conf 0.94  exc  10%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[ 38/145] PAY0064  bank    single_full  1.00    | match  90%  conf 0.94  exc  10%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[ 39/145] PAY0100  gateway partial      0.85    | match  90%  conf 0.94  exc  10%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[ 40/145] PAY0066  gateway combined     0.95    | match  95%  conf 0.94  exc   5%  retry   5%  pf!=   0%  eff 2.4tc/2.4it
+[ 41/145] PAY0052  bank    single_full  0.97    | match  95%  conf 0.94  exc   5%  retry   5%  pf!=   0%  eff 2.4tc/2.4it
+[ 42/145] PAY0073  gateway combined     0.95    | match  95%  conf 0.94  exc   5%  retry   5%  pf!=   0%  eff 2.4tc/2.4it
+[ 43/145] PAY0074  bank    combined     0.95    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 44/145] PAY0030  bank    single_full  1.00    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 45/145] PAY0029  bank    single_full  1.00    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 46/145] PAY0057  bank    single_full  0.97    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 47/145] PAY0096  gateway partial      0.85    | match 100%  conf 0.94  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 48/145] PAY0007  bank    single_full  1.00    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 49/145] PAY0006  bank    single_full  1.00    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 50/145] PAY0101  gateway partial      0.85    | match 100%  conf 0.94  exc   0%  retry   0%  pf!=   0%  eff 2.3tc/2.3it
+[ 51/145] PAY0053  bank    single_full  1.00    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 52/145] PAY0026  gateway single_full  0.97    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 53/145] PAY0022  gateway single_full  0.97    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 54/145] PAY0010  gateway single_full  0.97    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 55/145] PAY0056  bank    single_full  0.97    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 56/145] PAY0111  gateway fee_deducted 0.92    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 57/145] PAY0008  bank    single_full  1.00    | match 100%  conf 0.96  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 58/145] PAY0092  bank    partial      0.85    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 59/145] PAY0032  bank    single_full  0.97    | match 100%  conf 0.96  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 60/145] PAY0049  gateway single_full  0.97    | match 100%  conf 0.96  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 61/145] PAY0084  bank    combined     0.95    | match 100%  conf 0.96  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 62/145] PAY0099  bank    partial      0.85    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.2tc/2.2it
+[ 63/145] PAY0104  gateway partial      0.85    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.3tc/2.3it
+[ 64/145] PAY0005  bank    single_full  1.00    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.3tc/2.3it
+[ 65/145] PAY0031  gateway single_full  0.99    | match 100%  conf 0.94  exc   0%  retry   0%  pf!=   0%  eff 2.3tc/2.3it
+[ 66/145] PAY0106  gateway fee_deducted 0.92    | match 100%  conf 0.94  exc   0%  retry   0%  pf!=   0%  eff 2.4tc/2.4it
+[ 67/145] PAY0108  gateway fee_deducted 0.92    | match 100%  conf 0.95  exc   0%  retry   0%  pf!=   0%  eff 2.4tc/2.4it
+[ 68/145] PAY0119  gateway fee_deducted 0.92    | match 100%  conf 0.94  exc   0%  retry   0%  pf!=   0%  eff 2.4tc/2.4it
+[ 69/145] PAY0088  gateway partial      0.85    | match 100%  conf 0.93  exc   0%  retry   0%  pf!=   0%  eff 2.5tc/2.5it
+[ 70/145] PAY0904  gateway exception    0.90    | match  95%  conf 0.94  exc   5%  retry   0%  pf!=   5%  eff 2.5tc/2.5it
+[ 71/145] PAY0911  gateway exception    0.85    | match  90%  conf 0.93  exc  10%  retry   0%  pf!=   5%  eff 2.5tc/2.5it
+[ 72/145] PAY0019  bank    single_full  0.97    | match  90%  conf 0.93  exc  10%  retry   0%  pf!=   5%  eff 2.5tc/2.5it
+[ 73/145] PAY0103  gateway partial      0.85    | match  90%  conf 0.92  exc  10%  retry   0%  pf!=   5%  eff 2.6tc/2.6it
+[ 74/145] PAY0907  gateway exception    0.85    | match  85%  conf 0.92  exc  15%  retry   0%  pf!=   5%  eff 2.6tc/2.6it
+[ 75/145] PAY0077  gateway combined     0.95    | match  85%  conf 0.92  exc  15%  retry   0%  pf!=   5%  eff 2.6tc/2.6it
+[ 76/145] PAY0097  bank    partial      0.85    | match  85%  conf 0.91  exc  15%  retry   0%  pf!=   5%  eff 2.6tc/2.6it
+[ 77/145] PAY0901  gateway exception    0.90    | match  80%  conf 0.91  exc  20%  retry   0%  pf!=  10%  eff 2.7tc/2.7it
+[ 78/145] PAY0903  bank    exception    0.30    | match  75%  conf 0.88  exc  25%  retry   0%  pf!=  15%  eff 2.8tc/2.8it
+[ 79/145] PAY0905  bank    exception    0.10    | match  70%  conf 0.84  exc  30%  retry   0%  pf!=  20%  eff 2.8tc/2.8it
+[ 80/145] PAY0909  gateway exception    0.80    | match  65%  conf 0.83  exc  35%  retry   0%  pf!=  20%  eff 2.9tc/2.9it  <<1 ALERT>>
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!! ALERT FIRED  LOW MATCH RATE  [match_rate over last 20 = 65% (< 70% trip)]  @ record 80
+  why: the agent is failing to commit to a match far more often than normal - an upstream format or data change is likely
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[ 81/145] PAY0910  bank    exception    0.85    | match  60%  conf 0.82  exc  40%  retry   0%  pf!=  20%  eff 3.0tc/3.0it  <<2 ALERTS>>
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!! ALERT FIRED  EXCEPTION SPIKE  [exception_rate over last 20 = 40% (> 35% trip)]  @ record 81
+  why: a burst of payments is being dumped into the exception bucket
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[ 82/145] PAY0914  gateway exception    0.85    | match  55%  conf 0.82  exc  45%  retry   0%  pf!=  20%  eff 3.0tc/3.0it  <<2 ALERTS>>
+[ 83/145] PAY0004  gateway single_full  0.97    | match  55%  conf 0.83  exc  45%  retry   0%  pf!=  20%  eff 2.9tc/2.9it  <<2 ALERTS>>
+[ 84/145] PAY0055  bank    single_full  1.00    | match  55%  conf 0.83  exc  45%  retry   0%  pf!=  20%  eff 2.9tc/2.9it  <<2 ALERTS>>
+[ 85/145] PAY0915  gateway exception    0.80    | match  50%  conf 0.82  exc  50%  retry   0%  pf!=  20%  eff 3.0tc/3.0it  <<2 ALERTS>>
+[ 86/145] PAY0906  bank    exception    0.40    | match  45%  conf 0.79  exc  55%  retry   0%  pf!=  25%  eff 2.9tc/2.9it  <<2 ALERTS>>
+[ 87/145] PAY0130  bank    exception    0.85    | match  40%  conf 0.79  exc  60%  retry   0%  pf!=  25%  eff 2.9tc/2.9it  <<2 ALERTS>>
+[ 88/145] PAY0902  bank    exception    0.30    | match  35%  conf 0.76  exc  65%  retry   0%  pf!=  30%  eff 2.9tc/2.9it  <<3 ALERTS>>
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!! ALERT FIRED  LOW CONFIDENCE  [mean_confidence over last 20 = 0.76 (< 0.78 trip)]  @ record 88
+  why: the agent is resolving payments but is unsure about them
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[ 89/145] PAY0912  bank    exception    0.80    | match  30%  conf 0.76  exc  70%  retry   0%  pf!=  30%  eff 2.9tc/2.9it  <<3 ALERTS>>
+[ 90/145] PAY0913  gateway exception    0.80    | match  30%  conf 0.75  exc  70%  retry   0%  pf!=  25%  eff 2.9tc/2.9it  <<3 ALERTS>>
+[ 91/145] PAY0908  gateway exception    0.90    | match  30%  conf 0.75  exc  70%  retry   0%  pf!=  25%  eff 2.9tc/2.9it  <<3 ALERTS>>
+[ 92/145] PAY0050  gateway single_full  0.97    | match  30%  conf 0.75  exc  70%  retry   0%  pf!=  25%  eff 2.9tc/2.9it  <<3 ALERTS>>
+[ 93/145] PAY0087  gateway partial      0.85    | match  30%  conf 0.75  exc  70%  retry   0%  pf!=  25%  eff 2.9tc/2.9it  <<3 ALERTS>>
+[ 94/145] PAY0035  gateway single_full  0.97    | match  35%  conf 0.76  exc  65%  retry   0%  pf!=  25%  eff 2.8tc/2.8it  <<3 ALERTS>>
+[ 95/145] PAY0105  gateway partial      0.85    | match  35%  conf 0.76  exc  65%  retry   0%  pf!=  25%  eff 2.9tc/2.9it  <<3 ALERTS>>
+[ 96/145] PAY0015  bank    single_full  0.97    | match  35%  conf 0.76  exc  65%  retry   0%  pf!=  25%  eff 2.8tc/2.8it  <<3 ALERTS>>
+[ 97/145] PAY0024  gateway single_full  1.00    | match  40%  conf 0.77  exc  60%  retry   0%  pf!=  20%  eff 2.8tc/2.8it  <<3 ALERTS>>
+[ 98/145] PAY0018  gateway single_full  1.00    | match  45%  conf 0.80  exc  55%  retry   0%  pf!=  15%  eff 2.6tc/2.6it  <<3 ALERTS>>
+[ 99/145] PAY0042  bank    single_full  1.00    | match  50%  conf 0.85  exc  50%  retry   0%  pf!=  10%  eff 2.6tc/2.6it  <<3 ALERTS>>
+[100/145] PAY0083  bank    combined     0.95    | match  55%  conf 0.85  exc  45%  retry   0%  pf!=  10%  eff 2.5tc/2.5it  <<2 ALERTS>>
+....................................................................................................
+  ... ALERT CLEARED  LOW CONFIDENCE  [mean_confidence over last 20 = 0.85 (>= 0.85 clear)]  @ record 100
+....................................................................................................
+[101/145] PAY0016  bank    single_full  1.00    | match  60%  conf 0.86  exc  40%  retry   0%  pf!=  10%  eff 2.5tc/2.5it  <<2 ALERTS>>
+[102/145] PAY0021  bank    single_full  1.00    | match  65%  conf 0.87  exc  35%  retry   0%  pf!=  10%  eff 2.4tc/2.4it  <<2 ALERTS>>
+[103/145] PAY0039  bank    single_full  1.00    | match  65%  conf 0.87  exc  35%  retry   0%  pf!=  10%  eff 2.4tc/2.4it  <<2 ALERTS>>
+[104/145] PAY0123  gateway fee_deducted 0.80    | match  65%  conf 0.86  exc  35%  retry   0%  pf!=  15%  eff 2.5tc/2.5it  <<2 ALERTS>>
+[105/145] PAY0045  gateway single_full  1.00    | match  70%  conf 0.87  exc  30%  retry   0%  pf!=  15%  eff 2.5tc/2.5it  <<2 ALERTS>>
+[106/145] PAY0068  bank    combined     0.95    | match  75%  conf 0.90  exc  25%  retry   0%  pf!=  10%  eff 2.5tc/2.5it  <<2 ALERTS>>
+[107/145] PAY0121  bank    exception    0.90    | match  75%  conf 0.90  exc  25%  retry   0%  pf!=  10%  eff 2.5tc/2.5it  <<2 ALERTS>>
+[108/145] PAY0014  bank    single_full  1.00    | match  80%  conf 0.94  exc  20%  retry   0%  pf!=   5%  eff 2.5tc/2.5it
+....................................................................................................
+  ... ALERT CLEARED  LOW MATCH RATE  [match_rate over last 20 = 80% (>= 80% clear)]  @ record 108
+....................................................................................................
+....................................................................................................
+  ... ALERT CLEARED  EXCEPTION SPIKE  [exception_rate over last 20 = 20% (<= 20% clear)]  @ record 108
+....................................................................................................
+[109/145] PAY0002  gateway single_full  0.97    | match  85%  conf 0.94  exc  15%  retry   0%  pf!=   5%  eff 2.5tc/2.5it
+[110/145] PAY0120  gateway fee_deducted 0.95    | match  90%  conf 0.95  exc  10%  retry   0%  pf!=   5%  eff 2.5tc/2.5it
+[111/145] PAY0013  bank    single_full  0.97    | match  95%  conf 0.96  exc   5%  retry   0%  pf!=   5%  eff 2.4tc/2.4it
+[112/145] PAY0063  gateway single_full  0.97    | match  95%  conf 0.96  exc   5%  retry   0%  pf!=   5%  eff 2.4tc/2.4it
+[113/145] PAY0067  gateway combined     0.95    | match  95%  conf 0.96  exc   5%  retry   0%  pf!=   5%  eff 2.4tc/2.4it
+[114/145] PAY0041  bank    single_full  1.00    | match  95%  conf 0.96  exc   5%  retry   0%  pf!=   5%  eff 2.4tc/2.4it
+[115/145] PAY0070  gateway combined     0.95    | match  95%  conf 0.97  exc   5%  retry   0%  pf!=   5%  eff 2.3tc/2.3it
+[116/145] PAY0061  gateway single_full  1.00    | match  95%  conf 0.97  exc   5%  retry   0%  pf!=   5%  eff 2.3tc/2.3it
+[117/145] PAY0122  gateway exception    0.70    | match  90%  conf 0.95  exc  10%  retry   0%  pf!=   5%  eff 2.5tc/2.5it
+[118/145] PAY0118  gateway fee_deducted 0.92    | match  90%  conf 0.95  exc  10%  retry   0%  pf!=   5%  eff 2.5tc/2.5it
+[119/145] PAY0080  gateway combined     1.00    | match  90%  conf 0.95  exc  10%  retry   0%  pf!=   5%  eff 2.5tc/2.5it
+[120/145] PAY0003  gateway single_full  0.97    | match  90%  conf 0.95  exc  10%  retry   0%  pf!=   5%  eff 2.5tc/2.5it
+[121/145] PAY0125  bank    exception    0.90    | match  85%  conf 0.94  exc  15%  retry   0%  pf!=   5%  eff 2.6tc/2.6it
+[122/145] PAY0082  gateway combined     1.00    | match  85%  conf 0.94  exc  15%  retry   0%  pf!=   5%  eff 2.6tc/2.6it
+[123/145] PAY0028  gateway single_full  0.97    | match  85%  conf 0.94  exc  15%  retry   0%  pf!=   5%  eff 2.6tc/2.6it
+[124/145] PAY0044  bank    single_full  1.00    | match  85%  conf 0.95  exc  15%  retry   0%  pf!=   0%  eff 2.5tc/2.5it
+[125/145] PAY0037  gateway single_full  0.97    | match  85%  conf 0.95  exc  15%  retry   0%  pf!=   0%  eff 2.5tc/2.5it
+[126/145] PAY0062  gateway single_full  0.97    | match  85%  conf 0.95  exc  15%  retry   0%  pf!=   0%  eff 2.5tc/2.5it
+[127/145] PAY0124  gateway exception    0.85    | match  85%  conf 0.95  exc  15%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[128/145] PAY0051  bank    single_full  1.00    | match  85%  conf 0.95  exc  15%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[129/145] PAY0033  gateway single_full  0.97    | match  85%  conf 0.95  exc  15%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[130/145] PAY0046  gateway single_full  1.00    | match  85%  conf 0.95  exc  15%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[131/145] PAY0076  gateway combined     1.00    | match  85%  conf 0.95  exc  15%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[132/145] PAY0094  bank    partial      0.85    | match  85%  conf 0.95  exc  15%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[133/145] PAY0117  gateway fee_deducted 0.92    | match  85%  conf 0.95  exc  15%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[134/145] PAY0065  bank    single_full  0.97    | match  85%  conf 0.95  exc  15%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[135/145] PAY0011  gateway single_full  0.97    | match  85%  conf 0.95  exc  15%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[136/145] PAY0020  gateway single_full  0.97    | match  85%  conf 0.94  exc  15%  retry   5%  pf!=   0%  eff 2.5tc/2.5it
+[137/145] PAY0071  bank    combined     0.95    | match  90%  conf 0.96  exc  10%  retry   5%  pf!=   0%  eff 2.4tc/2.4it
+[138/145] PAY0107  gateway fee_deducted 0.92    | match  90%  conf 0.96  exc  10%  retry   5%  pf!=   0%  eff 2.4tc/2.4it
+[139/145] PAY0081  bank    combined     0.95    | match  90%  conf 0.96  exc  10%  retry   5%  pf!=   0%  eff 2.4tc/2.4it
+[140/145] PAY0114  gateway fee_deducted 0.95    | match  90%  conf 0.95  exc  10%  retry   5%  pf!=   0%  eff 2.4tc/2.4it
+[141/145] PAY0047  bank    single_full  1.00    | match  95%  conf 0.96  exc   5%  retry   5%  pf!=   0%  eff 2.3tc/2.3it
+[142/145] PAY0059  gateway single_full  1.00    | match  95%  conf 0.96  exc   5%  retry   5%  pf!=   0%  eff 2.3tc/2.3it
+[143/145] PAY0027  bank    single_full  1.00    | match  95%  conf 0.96  exc   5%  retry   5%  pf!=   0%  eff 2.3tc/2.3it
+[144/145] PAY0085  gateway combined     0.95    | match  95%  conf 0.96  exc   5%  retry   5%  pf!=   0%  eff 2.3tc/2.3it
+[145/145] PAY0072  gateway combined     1.00    | match  95%  conf 0.96  exc   5%  retry   5%  pf!=   0%  eff 2.4tc/2.4it
+
+====================================================================================================
+  MONITOR SUMMARY
+====================================================================================================
+  window match-rate trace (145 ticks):
+    @@@@@@@%%%%%%%%%%%%%%%#####%%%%%%%%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%%%%##**++++===---------===++****###%%@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%@@@@@
+    lowest: 30% at record 89
+
+  3 alert(s) fired during the run:
+    !!! ALERT FIRED  LOW MATCH RATE  [match_rate over last 20 = 65% (< 70% trip)]  @ record 80
+    !!! ALERT FIRED  EXCEPTION SPIKE  [exception_rate over last 20 = 40% (> 35% trip)]  @ record 81
+    !!! ALERT FIRED  LOW CONFIDENCE  [mean_confidence over last 20 = 0.76 (< 0.78 trip)]  @ record 88
+    ... ALERT CLEARED  LOW CONFIDENCE  [mean_confidence over last 20 = 0.85 (>= 0.85 clear)]  @ record 100
+    ... ALERT CLEARED  LOW MATCH RATE  [match_rate over last 20 = 80% (>= 80% clear)]  @ record 108
+    ... ALERT CLEARED  EXCEPTION SPIKE  [exception_rate over last 20 = 20% (<= 20% clear)]  @ record 108
+

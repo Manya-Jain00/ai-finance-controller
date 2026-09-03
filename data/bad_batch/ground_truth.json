@@ -1,0 +1,112 @@
+{
+  "PAY0901": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0035"
+    ],
+    "notes": "new-ERP reference; exact single-invoice match a human could make"
+  },
+  "PAY0902": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0134"
+    ],
+    "notes": "new-ERP reference; exact single-invoice match a human could make"
+  },
+  "PAY0903": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0143"
+    ],
+    "notes": "new-ERP reference; exact single-invoice match a human could make"
+  },
+  "PAY0904": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0013"
+    ],
+    "notes": "new-ERP reference; exact single-invoice match a human could make"
+  },
+  "PAY0905": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0067"
+    ],
+    "notes": "new-ERP reference; exact single-invoice match a human could make"
+  },
+  "PAY0906": {
+    "match_type": "single_full",
+    "invoice_ids": [
+      "INV0125"
+    ],
+    "notes": "new-ERP reference; exact single-invoice match a human could make"
+  },
+  "PAY0907": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0008",
+      "INV0179"
+    ],
+    "notes": "new-ERP reference; exact sum of 2 invoices, same customer"
+  },
+  "PAY0908": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0007",
+      "INV0047"
+    ],
+    "notes": "new-ERP reference; exact sum of 2 invoices, same customer"
+  },
+  "PAY0909": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0176",
+      "INV0144"
+    ],
+    "notes": "new-ERP reference; exact sum of 2 invoices, same customer"
+  },
+  "PAY0910": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0055",
+      "INV0103"
+    ],
+    "notes": "new-ERP reference; exact sum of 2 invoices, same customer"
+  },
+  "PAY0911": {
+    "match_type": "combined",
+    "invoice_ids": [
+      "INV0058",
+      "INV0170"
+    ],
+    "notes": "new-ERP reference; exact sum of 2 invoices, same customer"
+  },
+  "PAY0912": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0011"
+    ],
+    "notes": "new-ERP reference; partial payment (66% of one invoice)"
+  },
+  "PAY0913": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0169"
+    ],
+    "notes": "new-ERP reference; partial payment (50% of one invoice)"
+  },
+  "PAY0914": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0074"
+    ],
+    "notes": "new-ERP reference; partial payment (46% of one invoice)"
+  },
+  "PAY0915": {
+    "match_type": "partial",
+    "invoice_ids": [
+      "INV0005"
+    ],
+    "notes": "new-ERP reference; partial payment (50% of one invoice)"
+  }
+}

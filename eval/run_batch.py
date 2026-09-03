@@ -62,6 +62,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--limit", type=int, help="process at most N payments")
     ap.add_argument("--only", help="comma-separated PAY#### ids to run")
     ap.add_argument("--no-preflight", dest="preflight", action="store_false")
+    ap.add_argument("--monitor", action="store_true",
+                    help="run the Phase 5 sliding-window monitor alongside the batch")
     args = ap.parse_args(argv)
 
     if not (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")):
@@ -97,6 +99,14 @@ def main(argv: list[str] | None = None) -> int:
     print(f"model: {recon.model}   preflight: {args.preflight}   "
           f"payments: {len(queue)} (of {len(wanted)}; {skipped} already logged)\n")
 
+    monitor = None
+    if args.monitor:
+        from monitor.live import LiveMonitor
+
+        # quiet: the batch already prints a line per payment; we only want the
+        # monitor's window stats and its alert banners layered on top.
+        monitor = LiveMonitor(total=len(queue), quiet=True)
+
     started = time.monotonic()
     ok = err = 0
     tok_in = tok_out = 0
@@ -111,6 +121,11 @@ def main(argv: list[str] | None = None) -> int:
             append_record(rec, args.log)
 
             print(f"          -> {_fmt_res(rec)}", flush=True)
+            if monitor is not None:
+                stats, events = monitor.feed(rec)
+                print(f"          .. window({stats.window_n}): {stats.summary()}", flush=True)
+                for ev in events:
+                    print(f"          {ev.line()}", flush=True)
             if rec.error:
                 err += 1
             else:
@@ -130,6 +145,8 @@ def main(argv: list[str] | None = None) -> int:
     print(f"tokens: {tok_in:,} in / {tok_out:,} out"
           + (f"  (~{(tok_in + tok_out) // n:,}/payment)" if n else ""))
     print(f"decision log -> {args.log}")
+    if monitor is not None:
+        monitor.print_summary()
     print("next: python -m eval.evaluate")
     return 0
 

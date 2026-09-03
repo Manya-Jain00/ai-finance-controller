@@ -1,0 +1,10 @@
+settlement_id,txn_date,gross_amount,fee,net_amount,payer_reference,payer_email
+BADSTL001,2026-03-29,18755.72,0.0,18755.72,PO#9395 / DT#20260329 / VND#Orion,finance@zrcorp.example
+BADSTL008,2026-03-29,20645.61,0.0,20645.61,20260329//4076//4077,accounts@orion-group.example
+BADSTL002,2026-03-27,77641.54,0.0,77641.54,PO#2541 / DT#20260327 / VND#TT,remittance@zrcorp.example
+BADSTL006,2026-03-27,77297.74,0.0,77297.74,20260327//6531//6532,remittance@zrcorp.example
+BADSTL005,2026-03-29,95051.03,0.0,95051.03,20260329//6038//6039,ap@kxtrading.example
+BADSTL007,2026-04-02,36961.61,0.0,36961.61,20260402//5265//5266,accounts@kxtrading.example
+BADSTL004,2026-04-03,112504.07,0.0,112504.07,20260403//7798//7799,ap@orion-group.example
+BADSTL003,2026-03-28,159954.62,0.0,159954.62,20260328//5866//5867,ap@kxtrading.example
+BADSTL009,2026-03-30,25240.99,0.0,25240.99,PO#7287 / DT#20260330 / VND#Orion,ap@nimbusretail.co
