@@ -1,0 +1,46 @@
+[
+  {
+    "payment_ref": "TX9981",
+    "source": "acme_bank",
+    "date": "2026-07-01",
+    "amount_received": 50481.98,
+    "gross_amount": 50481.98,
+    "fee": 0.0,
+    "reference": "Settlement for INV0005",
+    "counterparty_name": "Customer 014 Pvt Ltd",
+    "counterparty_email": null
+  },
+  {
+    "payment_ref": "TX9982",
+    "source": "acme_bank",
+    "date": "2026-07-02",
+    "amount_received": 24839.66,
+    "gross_amount": 24839.66,
+    "fee": 0.0,
+    "reference": "Payment ref INV0007",
+    "counterparty_name": "Customer 035 Pvt Ltd",
+    "counterparty_email": null
+  },
+  {
+    "payment_ref": "TX9983",
+    "source": "acme_bank",
+    "date": "2026-07-03",
+    "amount_received": 77848.74,
+    "gross_amount": 77848.74,
+    "fee": 0.0,
+    "reference": "Being payment of INV0008",
+    "counterparty_name": "Customer 038 Pvt Ltd",
+    "counterparty_email": null
+  },
+  {
+    "payment_ref": "TX9984",
+    "source": "acme_bank",
+    "date": "2026-07-04",
+    "amount_received": 12000.0,
+    "gross_amount": 12000.0,
+    "fee": 0.0,
+    "reference": "Advance payment - no invoice yet",
+    "counterparty_name": "Global Textiles Co",
+    "counterparty_email": null
+  }
+]

@@ -1,0 +1,47 @@
+'demo_foreign_bank.csv' — a file this project has never seen, columns: ['txn_ref', 'posting_date', 'debit_amt', 'narration', 'payer']
+
+step 1 — asking the model to map it onto Payment...
+    payment_ref          <- txn_ref
+    date                 <- posting_date
+    amount_received      <- debit_amt
+    reference            <- narration
+    gross_amount         <- (not present)
+    fee                  <- (not present)
+    counterparty_name    <- payer
+    counterparty_email   <- (not present)
+
+step 2 — applying the confirmed mapping (plain Python, no LLM)...
+  built 4 Payment objects, e.g. Payment(payment_ref='TX9981', source='acme_bank_demo', date='2026-07-01', amount_received=50481.98, gross_amount=50481.98, fee=0.0, reference='Settlement for INV0005', counterparty_name='Customer 014 Pvt Ltd', counterparty_email=None)
+
+step 3 — handing them to the UNCHANGED Phase-3 agent...
+  model: gemini-3.5-flash-lite
+
+==============================================================================
+TX9981  received=50481.98  reference='Settlement for INV0005'
+    -> parse_reference({"reference": "Settlement for INV0005"}) => {"raw": "Settlement for INV0005", "invoice_ids": ["INV0005"], "kind": "single", "note": "single invoice id"}
+    -> get_invoices({"invoice_ids": ["INV0005"]}) => {"found": [{"invoice_id": "INV0005", "customer_id": "CUST014", "customer_name": "Customer 014 Pvt Ltd", "invoice_amount": 50481.98, "invoice_date": "2026-03-01", "due_date": "2026-03-31"}], "missing":
+    -> find_invoices_by_customer({"customer_id": "CUST014"}) => {"count": 8, "invoices": [{"invoice_id": "INV0005", "customer_id": "CUST014", "customer_name": "Customer 014 Pvt Ltd", "invoice_amount": 50481.98, "invoice_date": "2026-03-01", "due_date": "2026-03-31
+  -> single_full ['INV0005']  confidence=1.00
+     Reference successfully parsed to INV0005. Amount received (50481.98) matches invoice INV0005 amount (50481.98) exactly. Customer name on payment (Customer 014 Pvt Ltd) also matches the invoice customer.
+==============================================================================
+TX9982  received=24839.66  reference='Payment ref INV0007'
+    -> parse_reference({"reference": "Payment ref INV0007"}) => {"raw": "Payment ref INV0007", "invoice_ids": ["INV0007"], "kind": "single", "note": "single invoice id"}
+    -> get_invoices({"invoice_ids": ["INV0007"]}) => {"found": [{"invoice_id": "INV0007", "customer_id": "CUST035", "customer_name": "Customer 035 Pvt Ltd", "invoice_amount": 24839.66, "invoice_date": "2026-04-18", "due_date": "2026-05-18"}], "missing":
+  -> single_full ['INV0007']  confidence=1.00
+     Parsed reference 'Payment ref INV0007' yielded invoice INV0007. Verified via get_invoices that INV0007 has an amount of 24839.66, which matches the amount_received (24839.66) exactly. Customer name ('Customer 035 Pvt Ltd') also matches.
+==============================================================================
+TX9983  received=77848.74  reference='Being payment of INV0008'
+    -> parse_reference({"reference": "Being payment of INV0008"}) => {"raw": "Being payment of INV0008", "invoice_ids": ["INV0008"], "kind": "single", "note": "single invoice id"}
+    -> get_invoices({"invoice_ids": ["INV0008"]}) => {"found": [{"invoice_id": "INV0008", "customer_id": "CUST038", "customer_name": "Customer 038 Pvt Ltd", "invoice_amount": 77848.74, "invoice_date": "2026-03-13", "due_date": "2026-04-12"}], "missing":
+  -> single_full ['INV0008']  confidence=1.00
+     The payment reference explicitly mentions INV0008. Fetching invoice INV0008 reveals an amount of 77848.74, which exactly matches the amount_received of 77848.74.
+==============================================================================
+TX9984  received=12000.0  reference='Advance payment - no invoice yet'
+    -> parse_reference({"reference": "Advance payment - no invoice yet"}) => {"raw": "Advance payment - no invoice yet", "invoice_ids": [], "kind": "unparseable", "note": "no invoice id pattern found"}
+    -> find_invoices_by_customer({"name": "Global Textiles Co"}) => {"count": 0, "invoices": [], "truncated": false}
+    -> find_invoices_by_amount({"amount": 12000, "tolerance_pct": 0.05}) => {"count": 3, "invoices": [{"invoice_id": "INV0171", "customer_id": "CUST018", "customer_name": "Customer 018 Pvt Ltd", "invoice_amount": 11973.5, "invoice_date": "2026-04-23", "due_date": "2026-05-23"
+  -> exception []  confidence=1.00
+     Tried reference parsing (which returned unparseable) and customer search/amount proximity search (which found no matching customer or valid invoice). The payment is an advance payment with no corresponding invoice.
+==============================================================================
+
+Every step above after 'step 1' is code that already existed for the graded 130-payment batch — nothing in agent/, tools/, eval/, monitor/, or qa/ was touched to make this work.

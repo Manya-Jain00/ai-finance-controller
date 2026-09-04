@@ -49,13 +49,15 @@ The agent **never sees the answer key** (`data/ground_truth.json`). Only
 | [`eval/`](eval/) | The batch runner (`run_batch.py`, resumable) and the grader (`evaluate.py` → `metrics.json`) | 4 |
 | [`monitor/`](monitor/) | Sliding-window health tracker + alert rules; a demo that shows an alert firing mid-run and clearing | 5 |
 | [`qa/`](qa/) | The settlement Q&A layer — ask the decision log questions in plain English (`python -m qa.chat`) | 6 |
+| [`onboard/`](onboard/) | Bring-your-own-data — AI-assisted column mapping so a differently-shaped CSV (a real company's export) can be onboarded without a hand-written loader | extra |
 | [`docs/`](docs/) | Scope statement and a per-phase writeup | — |
 
 Start with [`docs/architecture.md`](docs/architecture.md) — the full pipeline, a
 component table, and how each part maps to the Track 04 brief. Per-phase detail:
 [`docs/phase4-evaluation.md`](docs/phase4-evaluation.md) ·
 [`docs/phase5-monitoring.md`](docs/phase5-monitoring.md) ·
-[`docs/phase6-qa.md`](docs/phase6-qa.md).
+[`docs/phase6-qa.md`](docs/phase6-qa.md) ·
+[`docs/onboarding.md`](docs/onboarding.md) (bring-your-own-data).
 
 ---
 
@@ -115,6 +117,11 @@ python -m qa.demo
 # the full batch run (all 130 payments, ~26 min on the free tier, resumable)
 python -m eval.run_batch --fresh
 python -m eval.evaluate
+
+# bring-your-own-data: map a CSV this project has never seen onto Payment/Invoice,
+# then run it through the unmodified agent — see docs/onboarding.md
+python -m onboard.cli onboard/demo_foreign_bank.csv --kind payment
+python -m onboard.demo
 ```
 
 The free tier is rate-limited (~15 req/min) and occasionally returns transient

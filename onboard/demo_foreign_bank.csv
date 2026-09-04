@@ -1,0 +1,5 @@
+txn_ref,posting_date,debit_amt,narration,payer
+TX9981,2026-07-01,50481.98,Settlement for INV0005,Customer 014 Pvt Ltd
+TX9982,2026-07-02,24839.66,Payment ref INV0007,Customer 035 Pvt Ltd
+TX9983,2026-07-03,77848.74,Being payment of INV0008,Customer 038 Pvt Ltd
+TX9984,2026-07-04,12000.00,Advance payment - no invoice yet,Global Textiles Co

@@ -79,6 +79,7 @@ either.
 | **Monitor** | `monitor/tracker.py`, `monitor/alerts.py`, `monitor/live.py`, `monitor/demo.py` | A sliding window (last 20 records) over operational signals the agent produces about *itself* — match rate, mean confidence, exception rate, forced-retry rate, pre-flight-disagreement rate. Six alert rules with hysteresis (trip ≠ clear). Demonstrated firing on an injected "bad batch" and then clearing. Reads no ground truth — live, there is no answer key. |
 | **Q&A** | `qa/store.py`, `qa/query_tools.py`, `qa/assistant.py`, `qa/chat.py` | A thin conversational layer: a question goes through a Gemini loop with four read-only query tools over the decision log (`get_payment`, `search_payments`, `summarize_batch`, `group_by`) and comes back grounded in the log, citing payment ids and numbers. Does not re-run the agent. |
 | **Dashboard** | `docs/build_dashboard.py` → `docs/dashboard.html` | A generator that reads `metrics.json`, `demo_summary.json` and the decision log and bakes them into one self-contained page for a non-technical reader — headline accuracy, the outcome breakdown, the monitor dip, the unmatched list, the one wrong answer. No numbers typed by hand. |
+| **Onboarding** (extra, not a graded phase) | `onboard/mapper.py`, `onboard/schema.py`, `onboard/cli.py` | Answers "would this work on a company's own data?" for the loader layer: shows the model a new file's headers + a few sample rows, it proposes a mapping onto `Payment`/`Invoice`, a human confirms once, and the rest is plain deterministic Python. `onboard/demo.py` feeds a made-up bank's CSV through this and into the **unmodified** Phase-3 agent. See [`onboarding.md`](onboarding.md). |
 
 Per-phase detail: [`phase4-evaluation.md`](phase4-evaluation.md) ·
 [`phase5-monitoring.md`](phase5-monitoring.md) · [`phase6-qa.md`](phase6-qa.md).
@@ -147,3 +148,10 @@ Every command below runs from a fresh clone. Beats 2–4 need no API key.
 
 Close on **`docs/dashboard.html`** (open it in a browser) — the whole run on one
 plain-language page — and the brief-mapping table above.
+
+**Optional bonus beat, if there's time:** `python -m onboard.demo` — a CSV in a
+made-up bank's format, with columns nothing in this project generated, gets
+mapped by the model and fed into the *same unmodified agent* from beat 1. It
+resolves three real invoices exactly and correctly refuses the one with no
+invoice behind it. Directly answers "would this only work on your own data?"
+— see [`onboarding.md`](onboarding.md).
