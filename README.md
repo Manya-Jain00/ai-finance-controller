@@ -51,7 +51,9 @@ The agent **never sees the answer key** (`data/ground_truth.json`). Only
 | [`qa/`](qa/) | The settlement Q&A layer — ask the decision log questions in plain English (`python -m qa.chat`) | 6 |
 | [`docs/`](docs/) | Scope statement and a per-phase writeup | — |
 
-Per-phase detail: [`docs/phase4-evaluation.md`](docs/phase4-evaluation.md) ·
+Start with [`docs/architecture.md`](docs/architecture.md) — the full pipeline, a
+component table, and how each part maps to the Track 04 brief. Per-phase detail:
+[`docs/phase4-evaluation.md`](docs/phase4-evaluation.md) ·
 [`docs/phase5-monitoring.md`](docs/phase5-monitoring.md) ·
 [`docs/phase6-qa.md`](docs/phase6-qa.md).
 
