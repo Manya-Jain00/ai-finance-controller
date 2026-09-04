@@ -338,8 +338,6 @@ TEMPLATE = r"""<!doctype html>
   .miss dt { color: var(--muted); }
   .miss dd { margin: 0; }
 
-  footer { margin-top: 52px; padding-top: 18px; border-top: 1px solid var(--hair); color: var(--muted); font-size: 0.82rem; }
-  footer code { background: var(--shade); padding: 1px 5px; border-radius: 4px; }
   @media (max-width: 560px) {
     .orow { grid-template-columns: 1fr; gap: 6px; }
     .hero .big { font-size: 2.6rem; }
@@ -426,12 +424,6 @@ TEMPLATE = r"""<!doctype html>
     </div>
   </section>
 
-  <footer>
-    Generated <span id="f-date"></span> from
-    <code>eval/metrics.json</code>, <code>monitor/demo_summary.json</code> and
-    <code>qa/batch_decision_log.jsonl</code>.
-    Regenerate with <code>python -m docs.build_dashboard</code>. No numbers are entered by hand.
-  </footer>
 </div>
 
 <script>
@@ -443,7 +435,6 @@ const H = DATA.headline;
 $("h-pay").textContent = H.payments;
 $("h-acc").textContent = H.accuracy_pct + "%";
 $("h-acc-cap").textContent = `of ${H.payments} payments resolved correctly (${H.correct} of ${H.payments}) — graded against a hidden answer key`;
-$("f-date").textContent = DATA.generated;
 $("e-n").textContent = DATA.exceptions.length;
 $("w-total").textContent = H.payments;
 
