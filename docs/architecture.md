@@ -78,6 +78,7 @@ either.
 | **Eval** | `eval/run_batch.py`, `eval/evaluate.py`, `eval/metrics.json` | `run_batch` runs all 130 payments (resumable — a killed run loses nothing). `evaluate` is the only ground-truth reader: it computes match rate, accuracy, throughput and exception quality, and prints every wrong answer with the agent's own reasoning. |
 | **Monitor** | `monitor/tracker.py`, `monitor/alerts.py`, `monitor/live.py`, `monitor/demo.py` | A sliding window (last 20 records) over operational signals the agent produces about *itself* — match rate, mean confidence, exception rate, forced-retry rate, pre-flight-disagreement rate. Six alert rules with hysteresis (trip ≠ clear). Demonstrated firing on an injected "bad batch" and then clearing. Reads no ground truth — live, there is no answer key. |
 | **Q&A** | `qa/store.py`, `qa/query_tools.py`, `qa/assistant.py`, `qa/chat.py` | A thin conversational layer: a question goes through a Gemini loop with four read-only query tools over the decision log (`get_payment`, `search_payments`, `summarize_batch`, `group_by`) and comes back grounded in the log, citing payment ids and numbers. Does not re-run the agent. |
+| **Dashboard** | `docs/build_dashboard.py` → `docs/dashboard.html` | A generator that reads `metrics.json`, `demo_summary.json` and the decision log and bakes them into one self-contained page for a non-technical reader — headline accuracy, the outcome breakdown, the monitor dip, the unmatched list, the one wrong answer. No numbers typed by hand. |
 
 Per-phase detail: [`phase4-evaluation.md`](phase4-evaluation.md) ·
 [`phase5-monitoring.md`](phase5-monitoring.md) · [`phase6-qa.md`](phase6-qa.md).
@@ -144,4 +145,5 @@ Every command below runs from a fresh clone. Beats 2–4 need no API key.
 | **3. The monitor catching degradation** | `python -m monitor.demo` | The windowed match rate collapsing 100% → 30% as the injected bad batch lands, `LOW MATCH RATE` / `EXCEPTION SPIKE` / `LOW CONFIDENCE` firing mid-stream, then clearing as healthy payments resume. "No answer key here — it's watching the signals the agent produces about itself." |
 | **4. Settlement Q&A** | `python -m qa.chat "why didn't payment PAY0121 match?"` then `"show every combined payment above 100000"` | A plain-English question answered from the audit trail, citing payment ids and amounts, with `--show-tools` revealing the log queries behind it. |
 
-Close on `eval/metrics.json` and the brief-mapping table above.
+Close on **`docs/dashboard.html`** (open it in a browser) — the whole run on one
+plain-language page — and the brief-mapping table above.

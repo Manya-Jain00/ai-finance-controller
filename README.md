@@ -82,7 +82,15 @@ python -m eval.evaluate
 
 # 4. the live monitor catching a bad batch mid-run — alerts FIRE then CLEAR
 python -m monitor.demo
+
+# 5. rebuild the plain-language dashboard, then open docs/dashboard.html
+python -m docs.build_dashboard
 ```
+
+**[`docs/dashboard.html`](docs/dashboard.html)** is a single self-contained page
+(no server, open it in any browser) that turns the run into something a
+non-technical reader can follow — the headline accuracy, how the payments broke
+down, the live-monitor dip, the unmatched list, and the one wrong answer.
 
 ### Runs that call the Gemini API
 
