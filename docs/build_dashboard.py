@@ -198,36 +198,44 @@ TEMPLATE = r"""<!doctype html>
 <style>
   :root {
     color-scheme: light;
-    --plane: #f9f9f7;
+    --plane: #f7f6f2;
     --surface: #ffffff;
-    --ink: #0b0b0b;
-    --ink-2: #52514e;
-    --muted: #898781;
-    --hair: #e6e5df;
-    --grid: #ececE6;
-    --series: #2a78d6;
-    --series-soft: #cde2fb;
-    --good: #157f3c;
-    --alert: #d03b3b;
-    --alert-soft: #f7e0e0;
-    --shade: #eceae3;
+    --ink: #14140f;
+    --ink-2: #4c4b46;
+    --muted: #8c8a82;
+    --hair: #e3e1d8;
+    --grid: #ececE3;
+    --series: #1f5fa8;
+    --series-soft: #dbe8f6;
+    --series-mid: #6f9ecf;
+    --good: #1c7a4d;
+    --good-soft: #dcefe3;
+    --alert: #ac3b31;
+    --alert-soft: #f4e2df;
+    --shade: #ece9e0;
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    --shadow: 0 1px 1px rgba(20,20,15,0.03), 0 4px 14px rgba(20,20,15,0.045);
   }
   @media (prefers-color-scheme: dark) {
     :root {
       color-scheme: dark;
-      --plane: #0d0d0d;
-      --surface: #1a1a19;
-      --ink: #f4f3ee;
-      --ink-2: #c3c2b7;
-      --muted: #8f8d86;
-      --hair: #2c2c2a;
-      --grid: #262624;
-      --series: #3987e5;
-      --series-soft: #1c3f63;
-      --good: #3fae63;
-      --alert: #e66767;
-      --alert-soft: #3a2323;
-      --shade: #24241f;
+      --plane: #0e0e0c;
+      --surface: #1a1a17;
+      --ink: #f3f2ec;
+      --ink-2: #bfbdb3;
+      --muted: #8f8d84;
+      --hair: #2d2d29;
+      --grid: #262622;
+      --series: #5a9ae0;
+      --series-soft: #1d3854;
+      --series-mid: #3d6f9e;
+      --good: #46ae76;
+      --good-soft: #1b3527;
+      --alert: #e2796d;
+      --alert-soft: #3c2420;
+      --shade: #242420;
+      --shadow: 0 1px 1px rgba(0,0,0,0.2), 0 4px 14px rgba(0,0,0,0.28);
     }
   }
   * { box-sizing: border-box; }
@@ -235,67 +243,74 @@ TEMPLATE = r"""<!doctype html>
     margin: 0;
     background: var(--plane);
     color: var(--ink);
-    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font: 16px/1.55 var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 940px; margin: 0 auto; padding: 40px 22px 72px; }
-  header { margin-bottom: 36px; }
-  h1 { font-size: 1.6rem; margin: 0 0 6px; letter-spacing: -0.01em; }
-  .sub { color: var(--ink-2); max-width: 60ch; margin: 0; }
-  .hero {
-    margin: 26px 0 4px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  .wrap { max-width: 960px; margin: 0 auto; padding: 48px 22px 80px; }
+  header { margin-bottom: 40px; }
+  h1 {
+    font-size: 2.3rem; margin: 0 0 12px; letter-spacing: 0.02em; font-weight: 640;
+    text-transform: uppercase;
   }
-  .hero .big { font-size: 3.4rem; font-weight: 650; line-height: 1; letter-spacing: -0.02em; }
+  .sub { color: var(--ink-2); max-width: 62ch; margin: 0; }
+  .hero {
+    margin: 30px 0 4px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  }
+  .hero .big { font-family: var(--font-mono); font-size: 3.4rem; font-weight: 600; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
   .hero .cap { color: var(--ink-2); font-size: 1rem; }
 
-  section { margin-top: 44px; }
-  h2 { font-size: 1.15rem; margin: 0 0 4px; letter-spacing: -0.01em; }
+  section { margin-top: 48px; }
+  h2 { font-size: 1.1rem; margin: 0 0 4px; letter-spacing: -0.01em; font-weight: 620; display: flex; align-items: baseline; gap: 10px; }
+  h2 .secno { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
   .note { color: var(--ink-2); margin: 0 0 18px; max-width: 66ch; font-size: 0.95rem; }
 
   .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
   .kpi {
     background: var(--surface); border: 1px solid var(--hair); border-radius: 12px;
-    padding: 14px 16px;
+    padding: 16px 16px 15px; box-shadow: var(--shadow); position: relative; overflow: hidden;
   }
-  .kpi .v { font-size: 1.7rem; font-weight: 620; letter-spacing: -0.01em; }
-  .kpi .l { color: var(--ink-2); font-size: 0.86rem; margin-top: 2px; }
+  .kpi::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--series);
+  }
+  .kpi .v { font-family: var(--font-mono); font-size: 1.55rem; font-weight: 600; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .kpi .l { color: var(--ink-2); font-size: 0.86rem; margin-top: 4px; }
   .kpi .s { color: var(--muted); font-size: 0.8rem; margin-top: 5px; }
 
   .card {
     background: var(--surface); border: 1px solid var(--hair); border-radius: 14px;
-    padding: 22px;
+    padding: 24px; box-shadow: var(--shadow);
   }
 
   /* outcome bars */
-  .obar { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .obar { display: grid; grid-template-columns: 1fr; gap: 18px; }
   .orow { display: grid; grid-template-columns: 190px 1fr; gap: 16px; align-items: center; }
   .orow .name { font-size: 0.92rem; }
   .orow .name .d { color: var(--muted); font-size: 0.78rem; display: block; margin-top: 1px; }
-  .track { position: relative; height: 28px; }
+  .track { position: relative; height: 28px; background: var(--plane); border-radius: 5px; }
   .fill {
-    height: 100%; background: var(--series); border-radius: 3px 5px 5px 3px;
+    height: 100%; background: var(--series); border-radius: 5px;
     min-width: 3px;
   }
   .fill.exc { background: var(--muted); }
   .track .num {
     position: absolute; top: 50%; transform: translate(9px, -50%);
-    font-size: 0.9rem; font-weight: 650; color: var(--ink);
+    font-family: var(--font-mono); font-size: 0.88rem; font-weight: 600; color: var(--ink);
     font-variant-numeric: tabular-nums; white-space: nowrap;
   }
-  .orow .chk { color: var(--good); font-size: 0.82rem; margin-top: 5px; }
+  .orow .chk { color: var(--good); font-size: 0.82rem; margin-top: 6px; }
   .orow .chk.warn { color: var(--ink-2); }
 
   /* confidence strip */
-  .conf { display: flex; gap: 2px; height: 40px; background: var(--surface); }
+  .conf { display: flex; gap: 2px; height: 40px; background: var(--surface); border-radius: 5px; overflow: hidden; }
   .conf > div {
     display: flex; align-items: center; justify-content: center; color: #fff;
-    font-size: 0.9rem; font-weight: 650; min-width: 42px; border-radius: 3px;
+    font-family: var(--font-mono); font-size: 0.88rem; font-weight: 600; min-width: 42px;
     font-variant-numeric: tabular-nums;
   }
-  .conf .c0 { background: var(--series); border-radius: 5px 3px 3px 5px; }
-  .conf .c1 { background: #6fa3dc; }
-  .conf .c2 { background: var(--muted); border-radius: 3px 5px 5px 3px; }
-  .conf-key { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 12px; font-size: 0.85rem; color: var(--ink-2); }
+  .conf .c0 { background: var(--series); }
+  .conf .c1 { background: var(--series-mid); }
+  .conf .c2 { background: var(--muted); }
+  .conf-key { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; font-size: 0.85rem; color: var(--ink-2); }
   .conf-key i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; margin-right: 6px; vertical-align: middle; }
 
   /* line chart */
@@ -304,10 +319,12 @@ TEMPLATE = r"""<!doctype html>
   #chart { width: 100%; height: auto; display: block; overflow: visible; }
   svg .grid { stroke: var(--grid); stroke-width: 1; }
   svg .axis { stroke: var(--hair); stroke-width: 1; }
-  svg .tick { fill: var(--muted); font-size: 11px; }
+  svg .tick { fill: var(--muted); font-size: 11px; font-family: var(--font-mono); }
   svg .trace { fill: none; stroke: var(--series); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  svg .area { fill: var(--series-soft); opacity: 0.55; }
+  svg .endpoint { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
   svg .band { fill: var(--shade); }
-  svg .band-label { fill: var(--ink-2); font-size: 11px; font-weight: 600; }
+  svg .band-label { fill: var(--ink-2); font-size: 11px; font-weight: 600; font-family: var(--font-mono); letter-spacing: 0.02em; }
   svg .alert-stem { stroke: var(--alert); stroke-width: 1.5; stroke-dasharray: 3 2; }
   svg .alert-dot { fill: var(--alert); stroke: var(--surface); stroke-width: 2; }
   svg .cursor-line { stroke: var(--muted); stroke-width: 1; }
@@ -317,25 +334,33 @@ TEMPLATE = r"""<!doctype html>
     background: var(--ink); color: var(--plane); font-size: 0.8rem; padding: 5px 9px;
     border-radius: 6px; white-space: nowrap; transform: translate(-50%, -130%);
   }
-  .tip b { font-size: 0.95rem; }
-  .alert-list { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .tip b { font-family: var(--font-mono); font-size: 0.92rem; }
+  .alert-list { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
   .alert-list li { display: flex; gap: 10px; align-items: baseline; font-size: 0.9rem; }
   .alert-list .pin {
-    color: var(--alert); font-weight: 700; font-size: 0.78rem; border: 1px solid var(--alert);
-    border-radius: 999px; padding: 1px 8px; white-space: nowrap; flex: none;
+    font-family: var(--font-mono); color: var(--alert); font-weight: 700; font-size: 0.72rem;
+    letter-spacing: 0.04em; background: var(--alert-soft);
+    border-radius: 4px; padding: 2px 7px; white-space: nowrap; flex: none;
   }
-  .alert-list .at { color: var(--muted); }
+  .alert-list .at { color: var(--muted); font-family: var(--font-mono); font-size: 0.85rem; }
 
   /* exceptions table */
   table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--hair); vertical-align: top; }
-  th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
-  td.id { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 600; }
-  td.amt { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+  th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--hair); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--font-mono); }
+  tbody tr:nth-child(even) { background: var(--plane); }
+  td.id { font-family: var(--font-mono); white-space: nowrap; font-weight: 600; }
+  td.amt { font-family: var(--font-mono); white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
 
-  .miss { border-left: 3px solid var(--alert); }
-  .miss dl { margin: 10px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; font-size: 0.9rem; }
-  .miss dt { color: var(--muted); }
+  .miss { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .miss .idline { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; width: 100%; }
+  .miss .badge {
+    font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+    color: var(--alert); background: var(--alert-soft); border-radius: 4px; padding: 3px 8px;
+  }
+  .miss #w-id { font-family: var(--font-mono); font-size: 1rem; }
+  .miss dl { margin: 14px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 8px 14px; font-size: 0.92rem; width: 100%; }
+  .miss dt { color: var(--muted); font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 2px; }
   .miss dd { margin: 0; }
 
   @media (max-width: 560px) {
@@ -347,7 +372,7 @@ TEMPLATE = r"""<!doctype html>
 <body>
 <div class="wrap">
   <header>
-    <h1>AI Finance Controller — what the run produced</h1>
+    <h1>AI Finance Controller</h1>
     <p class="sub">An AI agent was given <span id="h-pay"></span> incoming payments from a bank
       file and a card-gateway file, and had to work out which invoice each one pays — or say,
       honestly, when nothing fits. Every decision was then graded against an answer key the
@@ -359,20 +384,20 @@ TEMPLATE = r"""<!doctype html>
   </header>
 
   <section>
-    <h2>What happened</h2>
+    <h2><span class="secno">01</span>What happened</h2>
     <p class="note">The five numbers a reviewer asks first.</p>
     <div class="kpis" id="kpis"></div>
   </section>
 
   <section>
-    <h2>How the payments broke down</h2>
+    <h2><span class="secno">02</span>How the payments broke down</h2>
     <p class="note">Every payment is exactly one of these five kinds. The note under each bar
       is how many of them the agent got right.</p>
     <div class="card"><div class="obar" id="obar"></div></div>
   </section>
 
   <section>
-    <h2>How sure the agent was</h2>
+    <h2><span class="secno">03</span>How sure the agent was</h2>
     <p class="note">A calibrated confidence rides every decision — so a person knows which ones
       to trust and which to double-check.</p>
     <div class="card">
@@ -382,7 +407,7 @@ TEMPLATE = r"""<!doctype html>
   </section>
 
   <section>
-    <h2>Catching problems as they happen</h2>
+    <h2><span class="secno">04</span>Catching problems as they happen</h2>
     <p class="note">Separately, a monitor watches the agent while it works — no answer key, just
       the agent's own signals over the last 20 payments. Here, 15 payments in a format the tools
       couldn't read were slipped into the stream. The match rate falls, alarms go off, and then
@@ -399,7 +424,7 @@ TEMPLATE = r"""<!doctype html>
   </section>
 
   <section>
-    <h2>The <span id="e-n"></span> payments it couldn't place</h2>
+    <h2><span class="secno">05</span>The <span id="e-n"></span> payments it couldn't place</h2>
     <p class="note">Not failures — these are payments a human also can't reconcile from what's on
       the wire. The agent flagged each one instead of guessing, and every one it flagged is a
       genuine orphan.</p>
@@ -412,10 +437,14 @@ TEMPLATE = r"""<!doctype html>
   </section>
 
   <section>
-    <h2>Its one wrong answer</h2>
+    <h2><span class="secno">06</span>Its one wrong answer</h2>
     <p class="note">Out of <span id="w-total"></span> payments, the agent got one wrong. Here it is, in full.</p>
     <div class="card miss">
-      <strong id="w-id"></strong> &nbsp;<span id="w-amt" style="color:var(--ink-2)"></span>
+      <div class="idline">
+        <strong id="w-id"></strong>
+        <span id="w-amt" style="color:var(--ink-2)"></span>
+        <span class="badge">INCORRECT</span>
+      </div>
       <dl>
         <dt>Right answer</dt><dd id="w-exp"></dd>
         <dt>Agent said</dt><dd id="w-agent"></dd>
@@ -499,7 +528,7 @@ $("conf-key").innerHTML = "";
 DATA.confidence.forEach((c, i) => {
   const s = document.createElement("span");
   const dot = document.createElement("i");
-  dot.style.background = ["var(--series)", "#6fa3dc", "var(--muted)"][i];
+  dot.style.background = ["var(--series)", "var(--series-mid)", "var(--muted)"][i];
   s.appendChild(dot);
   s.appendChild(document.createTextNode(`${c.label} (${c.range}) — ${c.count}`));
   $("conf-key").appendChild(s);
@@ -559,9 +588,12 @@ $("w-why").textContent = DATA.wrong.why;
   yc.textContent = "matched, last 20 payments"; svg.appendChild(yc);
   svg.appendChild(el("line", { class: "axis", x1: padL, x2: W - padR, y1: y(0), y2: y(0) }));
 
-  // trace
+  // trace (area fill first, so the line draws on top)
   const pts = trace.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+  const areaPath = `M${x(0).toFixed(1)},${y(0).toFixed(1)} L${pts} L${x(n - 1).toFixed(1)},${y(0).toFixed(1)} Z`;
+  svg.appendChild(el("path", { class: "area", d: areaPath }));
   svg.appendChild(el("polyline", { class: "trace", points: pts }));
+  svg.appendChild(el("circle", { class: "endpoint", cx: x(n - 1), cy: y(trace[n - 1]), r: 4 }));
 
   // alert markers
   for (const a of M.alerts) {
